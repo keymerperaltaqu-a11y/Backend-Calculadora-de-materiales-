@@ -1,0 +1,153 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #a8a18f; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/* TARJETA PRINCIPAL */
+.tarjeta {
+    background: #fdfbfb;
+    width: 100%;
+    max-width: 380px;
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid #e9dab5;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* TÍTULOS */
+h1 {
+    font-size: 1.2rem;
+    color: #574e4e;
+    margin-bottom: 5px;
+}
+
+h2 {
+    font-size: 0.95rem;
+    color: #c90909;
+    margin-bottom: 20px;
+}
+
+/* CAMPOS DE TEXTO */
+.campo {
+    text-align: left;
+    margin-bottom: 12px;
+}
+
+label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #141313; 
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
+
+/* ENLACES Y BOTONES */
+.enlace {
+    text-align: right;
+    margin-bottom: 15px;
+}
+
+.enlace a {
+    font-size: 0.8rem;
+    color: #141313;
+    text-decoration: none;
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-align: center;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.btn-principal {
+    background-color: #e21010; /* Beige cálido */
+    color: #000;
+    border: none;
+}
+
+.btn-secundario {
+    background-color: #ebe7d8;
+    color: #333;
+    border: 1px solid #ded8b8;
+}
+
+.btn-salir {
+    background-color: #f2d6d6;
+    color: #a00;
+    border: 1px solid #e0b0b0;
+}
+
+.lista-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+/* MÓDULOS Y RESULTADOS */
+.modulo {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 2px dashed #ded8b8;
+    text-align: left;
+}
+
+.modulo h3 {
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.radio-group {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 10px;
+    font-size: 0.85rem;
+}
+
+.resultado {
+    background: #faf8f2;
+    border: 1px solid #ded8b8;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 0;
+    font-size: 0.85rem;
+}
+
+.resultado h4 {
+    margin-bottom: 5px;
+    border-bottom: 1px solid #e2ded4;
+}
+
+.link-volver {
+    display: inline-block;
+    font-size: 0.8rem;
+    color: #666;
+    font-weight: bold;
+    text-decoration: none;
+}

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Keymer Peralta y Kevin Jimenez">
+    <title>Calculadora de Materiales</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 1. LOGIN -->
+    <main id="login" class="tarjeta">
+        <h1>CALCULADORA DE MATERIALES</h1>
+        <h2>Iniciar Sesión</h2>
+
+        <form id="form-login">
+            <div class="campo">
+                <label for="rol">Perfil / Rol</label>
+                <select id="rol" required>
+                    <option value="" disabled selected>Seleccione un rol</option>
+                    <option value="admin">Administrador</option>
+                    <option value="cliente">Cliente</option>
+                    <option value="maestro">Maestro De Obra</option>
+                </select>
+            </div>
+
+            <div class="campo">
+                <label for="usuario">Usuario</label>
+                <input type="text" id="usuario" placeholder="Ingrese su usuario" required>
+            </div>
+
+            <div class="campo">
+                <label for="clave">Contraseña</label>
+                <input type="password" id="clave" placeholder="••••••••" required>
+            </div>
+
+            <div class="enlace">
+                <a href="#recuperar">¿Olvidaste tu contraseña?</a>
+            </div>
+
+            <a href="#menu" class="btn btn-principal">Iniciar sesión</a>
+            <a href="#registro" class="btn btn-secundario">Registrarse</a>
+        </form>
+    </main>
+
+    <!-- 2. CREAR CUENTA -->
+    <main id="registro" class="tarjeta">
+        <h1>CALCULADORA DE MATERIALES</h1>
+        <h2>Crear Cuenta</h2>
+
+        <form>
+            <div class="campo">
+                <label for="reg-nombre">Nombre Completo</label>
+                <input type="text" id="reg-nombre" placeholder="Ejemplo Andres Perez" required>
+            </div>
+
+            <div class="campo">
+                <label for="reg-correo">Correo Electrónico</label>
+                <input type="email" id="reg-correo" placeholder="correo@ejemplo.com" required>
+            </div>
+
+            <div class="campo">
+                <label for="reg-rol">Perfil / Rol</label>
+                <select id="reg-rol" required>
+                    <option value="" disabled selected>Seleccione un rol</option>
+                    <option value="maestro">Maestro de Obra</option>
+                    <option value="cliente">Cliente</option>
+                </select>
+            </div>
+
+            <div class="campo">
+                <label for="reg-clave">Contraseña</label>
+                <input type="password" id="reg-clave" placeholder="Cree una contraseña" required>
+            </div>
+
+            <a href="#login" class="btn btn-principal">Completar Registro</a>
+            <a href="#login" class="btn btn-secundario">¿Ya tienes cuenta? Inicia sesión</a>
+        </form>
+    </main>
+
+    <!-- 3. RECUPERAR CONTRASEÑA -->
+    <main id="recuperar" class="tarjeta">
+        <h1>CALCULADORA DE MATERIALES</h1>
+        <h2>Recuperar Contraseña</h2>
+        <p class="texto-info">Ingresa tu usuario o correo para enviar las instrucciones.</p>
+
+        <form>
+            <div class="campo">
+                <label for="rec-usuario">Usuario o Correo</label>
+                <input type="text" id="rec-usuario" placeholder="Ingrese usuario o correo" required>
+            </div>
+
+            <a href="#login" class="btn btn-principal">Enviar Enlace</a>
+            <a href="#login" class="btn btn-secundario">Volver al Inicio</a>
+        </form>
+    </main>
+
+    <!-- 4. MENÚ PRINCIPAL Y CÁLCULOS -->
+    <main id="menu" class="tarjeta">
+        <h1>MENÚ PRINCIPAL</h1>
+        <h2>Panel de Usuario / Perfil</h2>
+
+        <!-- Lista de Módulos -->
+        <nav class="lista-menu">
+            <a href="#muro" class="btn btn-secundario">Calcular muro de ladrillo</a>
+            <a href="#viga" class="btn btn-secundario">Calcular viga de hormigón</a>
+            <a href="#columna" class="btn btn-secundario">Calcular columnas de hormigón</a>
+            <a href="#contrapiso" class="btn btn-secundario">Calcular contra pisos</a>
+            <a href="#techo" class="btn btn-secundario">Calcular techo</a>
+            <a href="#pisos" class="btn btn-secundario">Calcular pisos</a>
+            <a href="#pintura" class="btn btn-secundario">Calcular pintura</a>
+            <a href="#login" class="btn btn-salir">Salir</a>
+        </nav>
+
+        <!-- Módulos de Cálculo  -->
+        <section id="muro" class="modulo">
+            <h3>Calcular muro de ladrillo</h3>
+            <div class="radio-group">
+                <label><input type="radio" name="grosor" value="20" checked> 20 CM</label>
+                <label><input type="radio" name="grosor" value="30"> 30 CM</label>
+            </div>
+            <div class="campo"><label>Largo (m)</label><input type="number" id="muro-largo" step="0.1" value="1.0"></div>
+            <div class="campo"><label>Alto (m)</label><input type="number" id="muro-alto" step="0.1" value="1.0"></div>
+            <button type="button" class="btn btn-principal" onclick="calcularMuro()">Calcular materiales</button>
+            <div class="resultado" id="res-muro">
+                <h4>Tarjeta de salida</h4>
+                <p>Superficie total: 1.00 m²</p>
+                <p>Cemento: 15.20 kg</p>
+                <p>Arena: 0.115 m³</p>
+                <p>Ladrillos: 120 unidades</p>
+            </div>
+            <a href="#menu" class="link-volver">Volver al menú</a>
+        </section>
+
+        <section id="viga" class="modulo">
+            <h3>Calcular viga de hormigón</h3>
+            <div class="campo"><label>Largo lineal de la viga (m)</label><input type="number" id="viga-largo" step="0.1" value="1.0"></div>
+            <button type="button" class="btn btn-principal" onclick="calcularViga()">Calcular materiales</button>
+            <div class="resultado" id="res-viga">
+                <h4>Tarjeta de salida</h4>
+                <p>Cemento: 9.00 kg | Arena: 0.02 m³</p>
+                <p>Piedra: 0.02 m³ | Hierro 8: 4.00 m</p>
+            </div>
+            <a href="#menu" class="link-volver">Volver al menú</a>
+        </section>
+
+        <section id="columna" class="modulo">
+            <h3>Calcular columnas de hormigón</h3>
+            <div class="campo"><label>Largo lineal de la columna (m)</label><input type="number" id="col-largo" step="0.1" value="1.0"></div>
+            <button type="button" class="btn btn-principal" onclick="calcularColumna()">Calcular materiales</button>
+            <div class="resultado" id="res-columna">
+                <h4>Tarjeta de salida</h4>
+                <p>Cemento: 7.50 kg | Arena: 0.016 m³</p>
+                <p>Piedra: 0.016 m³ | Hierro 10: 6.00 m</p>
+            </div>
+            <a href="#menu" class="link-volver">Volver al menú</a>
+        </section>
+
+        <section id="contrapiso" class="modulo">
+            <h3>Calcular contra pisos</h3>
+            <div class="campo"><label>Espesor (m)</label><input type="number" id="contra-espesor" step="0.01" value="0.10"></div>
+            <div class="campo"><label>Ancho (m)</label><input type="number" id="contra-ancho" step="0.1" value="1.0"></div>
+            <div class="campo"><label>Largo (m)</label><input type="number" id="contra-largo" step="0.1" value="1.0"></div>
+            <button type="button" class="btn btn-principal" onclick="calcularContrapiso()">Calcular materiales</button>
+            <div class="resultado" id="res-contrapiso">
+                <h4>Tarjeta de salida</h4>
+                <p>Volumen total: 0.10 m³</p>
+                <p>Cemento: 10.50 kg | Arena: 0.045 m³</p>
+            </div>
+            <a href="#menu" class="link-volver">Volver al menú</a>
+        </section>
+
+        <section id="techo" class="modulo">
+            <h3>Calcular techo</h3>
+            <div class="campo"><label>Espesor (m)</label><input type="number" id="techo-espesor" step="0.01" value="0.12"></div>
+            <div class="campo"><label>Ancho (m)</label><input type="number" id="techo-ancho" step="0.1" value="1.0"></div>
+            <div class="campo"><label>Largo (m)</label><input type="number" id="techo-largo" step="0.1" value="1.0"></div>
+            <button type="button" class="btn btn-principal" onclick="calcularTecho()">Calcular materiales</button>
+            <div class="resultado" id="res-techo">
+                <h4>Tarjeta de salida</h4>
+                <p>Superficie total: 1.00 m²</p>
+                <p>Cemento: 33.00 kg | Hierro 8: 7.00 m</p>
+            </div>
+            <a href="#menu" class="link-volver">Volver al menú</a>
+        </section>
+
+        <section id="pisos" class="modulo">
+            <h3>Calcular pisos</h3>
+            <div class="campo"><label>Ancho (m)</label><input type="number" id="pisos-ancho" step="0.1" value="1.0"></div>
+            <div class="campo"><label>Largo (m)</label><input type="number" id="pisos-largo" step="0.1" value="1.0"></div>
+            <button type="button" class="btn btn-principal" onclick="calcularPisos()">Calcular materiales</button>
+            <div class="resultado" id="res-pisos">
+                <h4>Tarjeta de salida</h4>
+                <p>Superficie neta: 1.00 m²</p>
+                <p>Superficie total (+10% recortes): 1.10 m²</p>
+            </div>
+            <a href="#menu" class="link-volver">Volver al menú</a>
+        </section>
+
+        <section id="pintura" class="modulo">
+            <h3>Calcular pintura</h3>
+            <div class="campo"><label>Superficie del muro (m²)</label><input type="number" id="pintura-m2" step="0.1" value="6.0"></div>
+            <button type="button" class="btn btn-principal" onclick="calcularPintura()">Calcular materiales</button>
+            <div class="resultado" id="res-pintura">
+                <h4>Tarjeta de salida</h4>
+                <p>Superficie a pintar: 6.00 m²</p>
+                <p>Pintura requerida: 1.00 Litro</p>
+            </div>
+            <a href="#menu" class="link-volver">Volver al menú</a>
+        </section>
+    </main>
+
+    <!-- Conexión con el JavaScript Frontend -->
+    <script src="app.js"></script>
+</body>
+</html>
